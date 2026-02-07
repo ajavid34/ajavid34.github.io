@@ -1,0 +1,37 @@
+---
+layout: page
+title: Blog
+permalink: /blog/
+---
+
+<div class="tags-section">
+  <h2>Tags</h2>
+  <div class="tag-cloud">
+    {% for tag in site.tags %}
+      <a href="#{{ tag[0] | slugify }}" class="tag-badge">{{ tag[0] }} ({{ tag[1].size }})</a>
+    {% endfor %}
+  </div>
+</div>
+
+<div class="posts-by-tag">
+  {% for tag in site.tags %}
+  <div class="tag-group" id="{{ tag[0] | slugify }}">
+    <h3>{{ tag[0] }}</h3>
+    <ul class="post-list">
+      {% for post in tag[1] %}
+      <li>
+        <span class="post-date">{{ post.date | date: "%b %-d, %Y" }}</span>
+        <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+        {% if post.tags.size > 0 %}
+        <span class="post-tags">
+          {% for t in post.tags %}
+          <span class="tag-inline">{{ t }}</span>
+          {% endfor %}
+        </span>
+        {% endif %}
+      </li>
+      {% endfor %}
+    </ul>
+  </div>
+  {% endfor %}
+</div>
