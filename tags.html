@@ -13,22 +13,36 @@ permalink: /blog/
   </div>
 </div>
 
+<div class="posts-by-date">
+  <h2>All Posts</h2>
+  <ul class="post-list">
+    {% assign sorted_posts = site.posts | sort: "date" | reverse %}
+    {% for post in sorted_posts %}
+    <li>
+      <span class="post-date">{{ post.date | date: "%b %-d, %Y" }}</span>
+      <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+      {% if post.tags.size > 0 %}
+      <span class="post-tags">
+        {% for t in post.tags %}
+        <span class="tag-inline">{{ t }}</span>
+        {% endfor %}
+      </span>
+      {% endif %}
+    </li>
+    {% endfor %}
+  </ul>
+</div>
+
 <div class="posts-by-tag">
   {% for tag in site.tags %}
   <div class="tag-group" id="{{ tag[0] | slugify }}">
     <h3>{{ tag[0] }}</h3>
     <ul class="post-list">
-      {% for post in tag[1] %}
+      {% assign sorted_tag_posts = tag[1] | sort: "date" | reverse %}
+      {% for post in sorted_tag_posts %}
       <li>
         <span class="post-date">{{ post.date | date: "%b %-d, %Y" }}</span>
         <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
-        {% if post.tags.size > 0 %}
-        <span class="post-tags">
-          {% for t in post.tags %}
-          <span class="tag-inline">{{ t }}</span>
-          {% endfor %}
-        </span>
-        {% endif %}
       </li>
       {% endfor %}
     </ul>

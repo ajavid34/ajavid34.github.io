@@ -4,6 +4,7 @@ description: "Academic website and blog" # This will show up in places like twit
 
 header_pages:
   - tags.html
+  - publications.html
 
 # Email / Social media user names used by the minima theme:
 # All of these are optional and can be removed or commented out

@@ -46,11 +46,18 @@ hr {
 
 /* Academic homepage */
 .academic-profile {
-  max-width: 700px;
+  max-width: 800px;
 }
 
 .profile-header {
+  display: flex;
+  gap: 2rem;
   margin-bottom: 2rem;
+  align-items: flex-start;
+}
+
+.profile-info {
+  flex: 1;
 }
 
 .profile-header h1 {
@@ -66,6 +73,42 @@ hr {
 .profile-affiliation {
   color: #777;
   font-style: italic;
+}
+
+.profile-photo {
+  flex-shrink: 0;
+  width: 200px;
+  text-align: center;
+}
+
+.profile-photo img {
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 6px;
+  border: 1px solid #ddd;
+  background: #f5f5f5;
+}
+
+.photo-placeholder {
+  font-size: 0.7em;
+  color: #aaa;
+  margin-top: 0.3rem;
+}
+
+@media (max-width: 600px) {
+  .profile-header {
+    flex-direction: column-reverse;
+    align-items: center;
+    text-align: center;
+  }
+  .profile-photo {
+    width: 150px;
+  }
+  .profile-photo img {
+    width: 150px;
+    height: 150px;
+  }
 }
 
 .academic-section {
@@ -150,4 +193,45 @@ hr {
 .tags-section h2 {
   font-size: 1.1em;
   margin-bottom: 0.5rem;
+}
+
+.posts-by-date {
+  margin-bottom: 2rem;
+}
+
+.posts-by-date h2 {
+  font-size: 1.2em;
+  border-bottom: 1px solid #e0e0e0;
+  padding-bottom: 0.3rem;
+  margin-bottom: 0.8rem;
+}
+
+/* Publications */
+.pub-section {
+  margin-bottom: 2rem;
+}
+
+.pub-section h2 {
+  font-size: 1.2em;
+  border-bottom: 1px solid #e0e0e0;
+  padding-bottom: 0.3rem;
+  margin-bottom: 0.8rem;
+}
+
+.pub-list {
+  list-style: none;
+  padding-left: 0;
+}
+
+.pub-list li {
+  margin-bottom: 1rem;
+  line-height: 1.5;
+}
+
+.pub-title {
+  color: #2a7ae2;
+}
+
+.pub-venue {
+  color: #555;
 }
