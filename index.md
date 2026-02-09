@@ -10,6 +10,10 @@ title: Home
       <p class="profile-tagline">Researcher &amp; Developer</p>
       <p class="profile-affiliation">Your University / Organization</p>
     </div>
+    <div class="profile-photo">
+      <img src="/images/profile.jpg" alt="Profile photo" />
+      <p class="photo-placeholder">Replace /images/profile.jpg with your photo</p>
+    </div>
   </div>
 
   <section class="academic-section">
