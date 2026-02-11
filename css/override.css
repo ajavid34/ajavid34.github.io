@@ -149,6 +149,16 @@ hr {
   text-decoration: none;
 }
 
+.tag-badge.tag-active {
+  background: #2a7ae2;
+  color: #fff;
+  border-color: #2a7ae2;
+}
+
+.tag-badge.tag-active:hover {
+  background: #1a6ad4;
+}
+
 .tag-inline {
   display: inline-block;
   background: #f5f5f5;

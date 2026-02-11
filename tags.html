@@ -7,18 +7,18 @@ permalink: /blog/
 <div class="tags-section">
   <h2>Tags</h2>
   <div class="tag-cloud">
+    <a href="#" class="tag-badge tag-active" data-tag="all">All</a>
     {% for tag in site.tags %}
-      <a href="#{{ tag[0] | slugify }}" class="tag-badge">{{ tag[0] }} ({{ tag[1].size }})</a>
+      <a href="#" class="tag-badge" data-tag="{{ tag[0] }}">{{ tag[0] }} ({{ tag[1].size }})</a>
     {% endfor %}
   </div>
 </div>
 
 <div class="posts-by-date">
-  <h2>All Posts</h2>
   <ul class="post-list">
     {% assign sorted_posts = site.posts | sort: "date" | reverse %}
     {% for post in sorted_posts %}
-    <li>
+    <li data-tags="{{ post.tags | join: ',' }}">
       <span class="post-date">{{ post.date | date: "%b %-d, %Y" }}</span>
       <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
       {% if post.tags.size > 0 %}
@@ -33,19 +33,38 @@ permalink: /blog/
   </ul>
 </div>
 
-<div class="posts-by-tag">
-  {% for tag in site.tags %}
-  <div class="tag-group" id="{{ tag[0] | slugify }}">
-    <h3>{{ tag[0] }}</h3>
-    <ul class="post-list">
-      {% assign sorted_tag_posts = tag[1] | sort: "date" | reverse %}
-      {% for post in sorted_tag_posts %}
-      <li>
-        <span class="post-date">{{ post.date | date: "%b %-d, %Y" }}</span>
-        <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
-      </li>
-      {% endfor %}
-    </ul>
-  </div>
-  {% endfor %}
-</div>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  var tagLinks = document.querySelectorAll(".tag-cloud .tag-badge");
+  var posts = document.querySelectorAll(".posts-by-date .post-list li");
+
+  function filterByTag(selectedTag) {
+    tagLinks.forEach(function (l) { l.classList.remove("tag-active"); });
+    tagLinks.forEach(function (l) {
+      if (l.getAttribute("data-tag") === selectedTag) l.classList.add("tag-active");
+    });
+    posts.forEach(function (post) {
+      if (selectedTag === "all") {
+        post.style.display = "";
+      } else {
+        var postTags = post.getAttribute("data-tags").split(",");
+        post.style.display = postTags.indexOf(selectedTag) !== -1 ? "" : "none";
+      }
+    });
+  }
+
+  tagLinks.forEach(function (link) {
+    link.addEventListener("click", function (e) {
+      e.preventDefault();
+      filterByTag(this.getAttribute("data-tag"));
+    });
+  });
+
+  // Auto-filter if ?tag= is in the URL
+  var params = new URLSearchParams(window.location.search);
+  var tagParam = params.get("tag");
+  if (tagParam) {
+    filterByTag(tagParam);
+  }
+});
+</script>
