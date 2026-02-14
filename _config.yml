@@ -1,6 +1,6 @@
-title: "AJ"
-author: "AJ"
-description: "Academic website and blog" # This will show up in places like twitter, linkedin, etc, if you share your sites url as a post.
+title: "Personal Blog"
+author: "Alireza Javid"
+description: "You can find some random things here!" # This will show up in places like twitter, linkedin, etc, if you share your sites url as a post.
 
 header_pages:
   - tags.html
