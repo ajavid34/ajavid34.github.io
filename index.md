@@ -22,7 +22,7 @@ title: Home
   </section>
 
   <section class="academic-section">
-    <h2>Research Interests</h2>
+    <h2>News</h2>
     <ul class="research-list">
       <li>Topic Area 1</li>
       <li>Topic Area 2</li>
