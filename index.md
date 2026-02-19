@@ -18,7 +18,7 @@ title: Home
 
   <section class="academic-section">
     <h2>About</h2>
-    <p>Welcome! I am an ECE PhD student and researcher at UC San Diego interested in various topics in machine learning, particularly from a theoretical perspective. In this blog, I will talk about my research and other things that are interesting to me. I graduated from the University of Tehran in 2024.</p>
+    <p>Welcome! I am an ECE PhD student at UC San Diego interested in various topics in machine learning, particularly from a theoretical perspective. In this blog, I will talk about my research and other things that are interesting to me. I graduated from the University of Tehran in 2024.</p>
   </section>
 
   <section class="academic-section">
