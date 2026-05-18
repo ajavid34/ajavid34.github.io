@@ -12,7 +12,7 @@ title: Home
     </div>
     <div class="profile-photo">
       <img src="/images/profile.jpg" alt="Profile photo" />
-      <p class="photo-placeholder">Replace /images/profile.jpg with your photo</p>
+      <p class="photo-placeholder"></p>
     </div>
   </div>
 
